@@ -1,7 +1,7 @@
 import UserModel from "../Models/UserModal";
 
- const Block = async (req, res, next) => {
-   try {
+const Block = async (req, res, next) => {
+  try {
     const { user } = useSelector((state) => state.authReducer.authData);
     const userBlock = UserModel.findById(user._id);
     next();

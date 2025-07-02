@@ -26,10 +26,11 @@ const server = createServer(app)
 
 
 // Middleware 
+const clientHostedUrl = process.env.DEPLOYED_ORIGIN 
 
 app.use(bodyParser.json({ limit: "30 mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30 mb", extended: true }));
-app.use(cors({ origin: ["https://socialmeconnect.netlify.app", "http://localhost:3000"] }))
+app.use(cors({ origin: [clientHostedUrl, "http://localhost:3000"] }))
 Socket(server)
 dotenv.config();
 
